@@ -27,10 +27,7 @@ public class StudentsServiceImpl implements StudentsService {
 
     @Override
     public boolean isExistSno(String sno) {
-        if (studentsMapper.queryFromSno(sno) != null){
-            return true;
-        }
-        return false;
+        return studentsMapper.queryFromSno(sno) != null;
     }
 
     @Override
