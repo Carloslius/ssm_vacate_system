@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mba.zzuvacationsystem.mapper.VacationsMapper">
+
+    <insert id="addVacation" parameterType="vacations">
+        insert into vacations values(#{vno}, #{vdate}, #{vstatus}, #{vmno}, #{vsno}, #{vdestination}, #{vreason})
+    </insert>
+
+    <delete id="deleteVacationByVno" parameterType="string">
+        delete from vacations where vno = #{vno}
+    </delete>
+
+    <update id="updateVacationByVno">
+        update vacations set vstatus = #{vstatus}, vmno = #{vmno} where vno = #{vno}
+    </update>
+
+    <select id="queryVacationsByVsno" parameterType="string" resultType="vacations">
+        select * from vacations where vsno = #{vsno}
+    </select>
+
+    <select id="queryVacationByVno" parameterType="string" resultType="vacations">
+        select * from vacations where vno = #{vno}
+    </select>
+
+    <select id="queryVacations" resultType="vacations">
+        select * from vacations
+    </select>
+
+    <select id="queryVacationsByMdno" parameterType="string" resultType="vacations">
+        select vno, vdate, vstatus, vmno, vsno, vdestination, vreason from vacations, students, managers where vsno = sno and sdno = mdno and mdno = #{mdno}
+    </select>
+
+    <select id="queryVacationsByMdnoAndStatus" parameterType="string" resultType="vacations">
+        select vno, vdate, vstatus, vmno, vsno, vdestination, vreason from vacations, students, managers where vsno = sno and sdno = mdno and mdno = #{mdno} and vstatus = '未审核'
+    </select>
+</mapper>

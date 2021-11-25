@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mba.zzuvacationsystem.mapper.StudentsMapper">
+
+    <update id="updateStudent" parameterType="students">
+        update students set sname = #{sname}, spassword = #{spassword}, sbirthday = #{sbirthday},
+                            ssex = #{ssex}, sgrade = #{sgrade}, sphone = #{sphone}, sdno = #{sdno}
+                            where sno = #{sno}
+    </update>
+
+    <insert id="addStudent" parameterType="students">
+        insert into students values(#{sno}, #{sname}, #{spassword}, #{sbirthday}, #{ssex},
+                                    #{sgrade}, #{sphone}, #{sdno})
+    </insert>
+
+    <select id="queryFromSno" parameterType="string" resultType="students">
+        select * from students where sno = #{string}
+    </select>
+
+    <select id="queryFromSnoAndSpassword" resultType="students">
+        select * from students where sno = #{sno} and spassword = #{spassword}
+    </select>
+
+    <select id="queryStudents" resultType="students">
+        select * from students
+    </select>
+
+</mapper>
