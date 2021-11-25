@@ -46,7 +46,7 @@
     </mvc:interceptors>
 
 
-<!--    <bean class="mba.zzuvacationsystem.resolver.MyExceptionResolver"/>-->
+    <bean class="mba.zzuvacationsystem.resolver.MyExceptionResolver"/>
 
 
 </beans>
