@@ -3,7 +3,6 @@ package mba.zzuvacationsystem.interceptor;
 import mba.zzuvacationsystem.pojo.Managers;
 import mba.zzuvacationsystem.pojo.Students;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
